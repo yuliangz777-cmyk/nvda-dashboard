@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NVDA 專屬投資追蹤 Dashboard：行情、財報、產品線、供應鏈、催化劑與風險。" />
+  <title>NVDA Intelligence Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="NVDA dashboard home">
+      <span class="brand-mark">N</span>
+      <span>NVDA / INTELLIGENCE</span>
+    </a>
+    <nav aria-label="主要導覽">
+      <a href="#market">市場</a>
+      <a href="#financials">財報</a>
+      <a href="#supply-chain">供應鏈</a>
+      <a href="#watchlist">觀察清單</a>
+    </nav>
+    <div class="asof"><span class="pulse"></span><span id="asOf">更新中</span></div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">NASDAQ · NVDA</p>
+        <h1>追蹤的不只是股價，<br><span>而是整條 AI 算力鏈。</span></h1>
+        <p class="hero-note">從即時行情、財務動能到先進封裝與 HBM 供應，將 NVIDIA 的投資訊號集中在同一個決策畫面。</p>
+      </div>
+      <div class="thesis-card">
+        <div class="thesis-head"><span>投資假設狀態</span><span class="status">MONITOR</span></div>
+        <p>AI 基礎建設支出仍是營收主引擎；下一階段關注 Rubin 放量、記憶體成本、毛利率走勢與 hyperscaler 資本支出延續性。</p>
+        <div class="signal-row"><span>需求</span><strong class="positive">擴張</strong></div>
+        <div class="signal-row"><span>供給</span><strong class="warning">受限</strong></div>
+        <div class="signal-row"><span>估值</span><strong>需配合成長驗證</strong></div>
+      </div>
+    </section>
+
+    <section class="ticker-strip" aria-label="重要觀察指標">
+      <div><span>FY26 REVENUE</span><strong>$215.9B</strong><em>+65% YoY</em></div>
+      <div><span>FY26 Q4 REVENUE</span><strong>$68.1B</strong><em>+73% YoY</em></div>
+      <div><span>FY26 Q4 DATA CENTER</span><strong>$62.3B</strong><em>+75% YoY</em></div>
+      <div><span>FY26 GAAP GROSS MARGIN</span><strong>71.1%</strong><em>full year</em></div>
+    </section>
+
+    <section id="market" class="section shell">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / MARKET</p><h2>行情與技術面</h2></div>
+        <p>互動圖表由 TradingView 提供；可直接切換週期、指標與比較標的。</p>
+      </div>
+      <div class="market-grid">
+        <div class="panel chart-panel">
+          <div class="tradingview-widget-container">
+            <div id="tradingview_chart"></div>
+          </div>
+        </div>
+        <aside class="panel checklist">
+          <div class="panel-title">技術面檢核</div>
+          <label><input type="checkbox" data-persist="trend"><span>股價站上 50 日均線</span></label>
+          <label><input type="checkbox" data-persist="volume"><span>突破伴隨成交量放大</span></label>
+          <label><input type="checkbox" data-persist="relative"><span>相對強度優於 SOX / QQQ</span></label>
+          <label><input type="checkbox" data-persist="support"><span>回測前高或均線獲得支撐</span></label>
+          <label><input type="checkbox" data-persist="risk"><span>已設定失效條件與部位上限</span></label>
+          <p class="microcopy">勾選結果只存在你的瀏覽器，不會上傳。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="financials" class="section shell">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / FUNDAMENTALS</p><h2>成長品質</h2></div>
+        <p>將營收、部門組成與毛利率放在一起看，避免只追逐單一 headline number。</p>
+      </div>
+      <div class="fund-grid">
+        <article class="panel wide">
+          <div class="panel-title">年度營收軌跡 <span>USD billions</span></div>
+          <canvas id="revenueChart" height="130"></canvas>
+        </article>
+        <article class="panel metric-card">
+          <span>FY26 營收</span><strong>$215.9B</strong><p>規模擴張仍主要由 AI 資料中心平台推動。</p>
+        </article>
+        <article class="panel metric-card">
+          <span>FY26 GAAP 毛利率</span><strong>71.1%</strong><p>追蹤新品轉換、HBM 與系統成本對毛利率的壓力。</p>
+        </article>
+        <article class="panel metric-card">
+          <span>Q4 資料中心占比</span><strong>91.5%</strong><p>由 $62.3B / $68.1B 計算，集中度同時代表動能與風險。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell product-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">03 / BUSINESS LINES</p><h2>產品線地圖</h2></div>
+        <p>點選卡片查看成長驅動與最值得追蹤的領先指標。</p>
+      </div>
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+
+    <section id="supply-chain" class="section shell">
+      <div class="section-heading">
+        <div><p class="eyebrow">04 / SUPPLY CHAIN</p><h2>AI 系統供應鏈</h2></div>
+        <p>NVDA 是設計與平台層；營收能否落地，取決於晶圓、封裝、記憶體、網通與整機交付共同放量。</p>
+      </div>
+      <div class="chain-flow" id="chainFlow"></div>
+      <div class="chain-detail panel" id="chainDetail" aria-live="polite"></div>
+    </section>
+
+    <section id="watchlist" class="section shell">
+      <div class="section-heading">
+        <div><p class="eyebrow">05 / DECISION LOG</p><h2>催化劑與風險雷達</h2></div>
+        <p>把可驗證事件與反方訊號並列；每次財報後重新檢查投資假設。</p>
+      </div>
+      <div class="radar-grid">
+        <article class="panel radar-card catalyst">
+          <div class="panel-title">催化劑</div>
+          <ul>
+            <li><span>01</span>Hyperscaler 資本支出持續上修</li>
+            <li><span>02</span>Rubin 平台按期量產與系統交付</li>
+            <li><span>03</span>Inference、agentic AI 帶來新一輪算力需求</li>
+            <li><span>04</span>Networking 與整櫃系統提高單一部署價值</li>
+          </ul>
+        </article>
+        <article class="panel radar-card risk">
+          <div class="panel-title">風險</div>
+          <ul>
+            <li><span>01</span>大型客戶自研 ASIC 擴大替代範圍</li>
+            <li><span>02</span>HBM、封裝或電力限制拖延收入認列</li>
+            <li><span>03</span>出口限制與中國市場不確定性</li>
+            <li><span>04</span>新品轉換與投入成本壓縮毛利率</li>
+          </ul>
+        </article>
+      </div>
+      <div class="panel notes-panel">
+        <div class="panel-title">我的觀察紀錄 <button id="clearNotes" type="button">清除</button></div>
+        <textarea id="decisionNotes" placeholder="例如：若資料中心成長低於預期且毛利率連續下滑，重新評估部位……"></textarea>
+        <div class="save-state" id="saveState">內容會自動儲存在此裝置</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>NVDA / INTELLIGENCE</strong><span>For research, not financial advice.</span></div>
+    <div class="source-links">
+      <a href="https://investor.nvidia.com/" target="_blank" rel="noreferrer">NVIDIA IR</a>
+      <a href="https://investor.nvidia.com/financial-info/quarterly-results/default.aspx" target="_blank" rel="noreferrer">Quarterly Results</a>
+      <a href="https://www.sec.gov/edgar/browse/?CIK=1045810&owner=exclude" target="_blank" rel="noreferrer">SEC Filings</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
