@@ -1,6 +1,6 @@
 const data = window.NVDA_DATA;
 
-document.getElementById("asOf").textContent = `資料框架 · ${new Date().toLocaleDateString("zh-TW")}`;
+document.getElementById("asOf").textContent = "研究版 · 2026-09-24";
 
 if (window.Chart) {
   const ctx = document.getElementById("revenueChart");
